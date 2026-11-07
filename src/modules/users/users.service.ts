@@ -7,8 +7,9 @@ import { User } from './interfaces/users.interface';
 export class UsersService {
     constructor(private readonly prisma: PrismaService) { }
 
-    async create(data: CreateUserDto): Promise<User> {
-        return await this.prisma.user.create({ data });
+    async createUser(data: CreateUserDto): Promise<{ message: string }> {
+        await this.prisma.user.create({ data });
+        return { message: 'User created successfully' };
     }
 
     async findUserByEmail(email: string): Promise<User | null> {

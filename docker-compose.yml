@@ -1,12 +1,13 @@
 services:
   api:
-    build: .
+    image: mianatra-api:latest
     container_name: mianatra-api
     restart: unless-stopped
     ports:
       - "3000:3000"
     environment:
       PORT: 3000
+      JWT_SECRET: ${JWT_SECRET}
       DATABASE_URL: postgresql://${DATABASE_USER}:${DATABASE_PASSWORD}@postgres:5432/${DATABASE_NAME}?schema=public
       TSC_WATCHFILE: UsePolling
       TSC_WATCHDIRECTORY: UsePolling
