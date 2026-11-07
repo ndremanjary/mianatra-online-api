@@ -8,6 +8,7 @@ services:
     environment:
       PORT: 3000
       JWT_SECRET: ${JWT_SECRET}
+      JWT_EXPIRATION_TIME: ${JWT_EXPIRATION_TIME}
       DATABASE_URL: postgresql://${DATABASE_USER}:${DATABASE_PASSWORD}@postgres:5432/${DATABASE_NAME}?schema=public
       TSC_WATCHFILE: UsePolling
       TSC_WATCHDIRECTORY: UsePolling

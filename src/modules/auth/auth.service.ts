@@ -32,7 +32,7 @@ export class AuthService {
         if (!await bcrypt.compare(password, user.password))
             throw new UnauthorizedException();
 
-        const payload = { sub: user.id, email: user.email };
+        const payload = { sub: user.id, email: user.email, roles: user.roles };
 
         return {
             id: user.id,
